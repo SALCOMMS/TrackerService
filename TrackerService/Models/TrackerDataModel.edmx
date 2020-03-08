@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Models.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'cxgpsinformation.dbo.cx13000000003' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="cx13000000003">
+          <Key>
+            <PropertyRef Name="Time" />
+            <PropertyRef Name="Longitude" />
+            <PropertyRef Name="Latitude" />
+            <PropertyRef Name="Velocity" />
+          </Key>
+          <Property Name="Time" Type="datetime" Nullable="false" />
+          <Property Name="Longitude" Type="decimal" Precision="8" Scale="5" Nullable="false" />
+          <Property Name="Latitude" Type="decimal" Precision="8" Scale="5" Nullable="false" />
+          <Property Name="Velocity" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'cxgpsinformation.dbo.TrackerDetail' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="TrackerDetail">
+          <Key>
+            <PropertyRef Name="Time" />
+            <PropertyRef Name="Longitude" />
+            <PropertyRef Name="Latitude" />
+            <PropertyRef Name="Velocity" />
+          </Key>
+          <Property Name="Time" Type="datetime" Nullable="false" />
+          <Property Name="Longitude" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Latitude" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Velocity" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="ModelsStoreContainer">
+          <EntitySet Name="cx13000000003" EntityType="Self.cx13000000003" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[cx13000000003].[Time] AS [Time], 
+[cx13000000003].[Longitude] AS [Longitude], 
+[cx13000000003].[Latitude] AS [Latitude], 
+[cx13000000003].[Velocity] AS [Velocity]
+FROM [dbo].[cx13000000003] AS [cx13000000003]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TrackerDetail" EntityType="Self.TrackerDetail" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[TrackerDetail].[Time] AS [Time], 
+[TrackerDetail].[Longitude] AS [Longitude], 
+[TrackerDetail].[Latitude] AS [Latitude], 
+[TrackerDetail].[Velocity] AS [Velocity]
+FROM [dbo].[TrackerDetail] AS [TrackerDetail]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Models" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityType Name="TrackerDetail">
+          <Key>
+            <PropertyRef Name="Time" />
+            <PropertyRef Name="Longitude" />
+            <PropertyRef Name="Latitude" />
+            <PropertyRef Name="Velocity" />
+          </Key>
+          <Property Name="Time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Longitude" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Latitude" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Velocity" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="TrackerContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TrackerDetail" EntityType="Self.TrackerDetail" />
+          <EntitySet Name="cx13000000003" EntityType="Models.cx13000000003" />
+        </EntityContainer>
+        <EntityType Name="cx13000000003">
+          <Key>
+            <PropertyRef Name="Time" />
+            <PropertyRef Name="Longitude" />
+            <PropertyRef Name="Latitude" />
+            <PropertyRef Name="Velocity" />
+          </Key>
+          <Property Name="Time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Longitude" Type="Decimal" Nullable="false" Precision="8" Scale="5" />
+          <Property Name="Latitude" Type="Decimal" Nullable="false" Precision="8" Scale="5" />
+          <Property Name="Velocity" Type="Int32" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelsStoreContainer" CdmEntityContainer="TrackerContext">
+          <EntitySetMapping Name="TrackerDetail">
+            <EntityTypeMapping TypeName="Models.TrackerDetail">
+              <MappingFragment StoreEntitySet="TrackerDetail">
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="Velocity" ColumnName="Velocity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cx13000000003">
+            <EntityTypeMapping TypeName="Models.cx13000000003">
+              <MappingFragment StoreEntitySet="cx13000000003">
+                <ScalarProperty Name="Velocity" ColumnName="Velocity" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

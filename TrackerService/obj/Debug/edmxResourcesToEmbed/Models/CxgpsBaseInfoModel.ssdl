@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'cxgpsbaseinfo.dbo.RectTable' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="RectTable">
+    <Key>
+      <PropertyRef Name="CompanyID" />
+      <PropertyRef Name="FeatureName" />
+      <PropertyRef Name="LastEditTime" />
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="CompanyID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="FeatureName" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="RectType" Type="nvarchar" MaxLength="50" />
+    <Property Name="strPoints" Type="text" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="200" />
+    <Property Name="LastEditTime" Type="datetime" Nullable="false" />
+    <Property Name="SetTime" Type="nvarchar" MaxLength="6" />
+    <Property Name="FloatingTime" Type="int" />
+    <Property Name="NeedCorrect" Type="char" MaxLength="1" />
+    <Property Name="IsStatic" Type="bit" />
+    <Property Name="UserID" Type="uniqueidentifier" />
+    <Property Name="RunningNo1" Type="nvarchar" MaxLength="20" />
+    <Property Name="RunningNo2" Type="nvarchar" MaxLength="20" />
+    <Property Name="ImagePath" Type="nvarchar" MaxLength="200" />
+    <Property Name="BackgroundColor" Type="nvarchar" MaxLength="10" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="RectTable" EntityType="Self.RectTable" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[RectTable].[CompanyID] AS [CompanyID], 
+[RectTable].[FeatureName] AS [FeatureName], 
+[RectTable].[RectType] AS [RectType], 
+[RectTable].[strPoints] AS [strPoints], 
+[RectTable].[Remark] AS [Remark], 
+[RectTable].[LastEditTime] AS [LastEditTime], 
+[RectTable].[SetTime] AS [SetTime], 
+[RectTable].[FloatingTime] AS [FloatingTime], 
+[RectTable].[NeedCorrect] AS [NeedCorrect], 
+[RectTable].[IsStatic] AS [IsStatic], 
+[RectTable].[UserID] AS [UserID], 
+[RectTable].[RunningNo1] AS [RunningNo1], 
+[RectTable].[RunningNo2] AS [RunningNo2], 
+[RectTable].[ImagePath] AS [ImagePath], 
+[RectTable].[BackgroundColor] AS [BackgroundColor], 
+[RectTable].[id] AS [id]
+FROM [dbo].[RectTable] AS [RectTable]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

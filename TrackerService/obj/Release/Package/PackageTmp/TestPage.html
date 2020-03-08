@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tracker Detail</title>
+    <script src="Filters/jquery-1.8.3.js"></script>
+</head>
+<body>
+
+<h3>Tracker Detail</h3>
+<script>
+    $(document).ready(function () {
+        var systemNumber = "cx13000000003";
+        var dateTime = "2017-10-09 00:00:00.000";
+
+        var trackerInfoByTime = { systemNumber: "cx13000000003", dateTime: "2017-10-09 00:00:00.000" };
+
+        //var url = "http://localhost:58033/Tracker/GetTrackerInfoByTime/";
+        //var url = 'http://localhost:58033/Tracker/GetTrackerInfoByTime?systemNumber=' + systemNumber + '&dateTime=' + dateTime;
+        var url = 'http://web.ifleet.ng/trackerService/Tracker/GetTrackerInfoByTime?systemNumber=' + systemNumber + '&dateTime=' + dateTime;
+
+        $.ajax({
+            url: url,
+            method: "POST",
+            dataType: 'json',
+            data: JSON.stringify(trackerInfoByTime),
+            contentType: "application/json; charset=utf-8",
+            success: function (trackerDetail) {
+                alert(JSON.stringify(trackerDetail));
+            },
+            error: function () {
+                alert('Cannot get tracker detail.');
+            }
+        });
+    });
+
+    //$(document).ready(function () {
+    //    var systemNumber = "cx13000000003";
+
+    //    var url = "http://localhost:58033/Tracker/GetLastTrackerDetail/";
+    //    //var url = "http://web.ifleet.ng/trackerService/Tracker/GetLastTrackerDetail/";
+        
+    //    $.ajax({
+    //        url: url,
+    //        method: "POST",
+    //        data: { systemNumber: systemNumber },
+    //        success: function (trackerDetail) {
+    //            alert(JSON.stringify(trackerDetail));
+    //        },
+    //        error: function () {
+    //            alert('Cannot get tracker detail.');
+    //        }
+    //    });
+    //});
+</script>
+</body>
+</html>

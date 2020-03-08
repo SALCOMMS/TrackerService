@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="CxgpsBaseInfoContext">
+    <EntitySetMapping Name="RectTable">
+      <EntityTypeMapping TypeName="Model.RectTable">
+        <MappingFragment StoreEntitySet="RectTable">
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="FeatureName" ColumnName="FeatureName" />
+          <ScalarProperty Name="RectType" ColumnName="RectType" />
+          <ScalarProperty Name="strPoints" ColumnName="strPoints" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="LastEditTime" ColumnName="LastEditTime" />
+          <ScalarProperty Name="SetTime" ColumnName="SetTime" />
+          <ScalarProperty Name="FloatingTime" ColumnName="FloatingTime" />
+          <ScalarProperty Name="NeedCorrect" ColumnName="NeedCorrect" />
+          <ScalarProperty Name="IsStatic" ColumnName="IsStatic" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="RunningNo1" ColumnName="RunningNo1" />
+          <ScalarProperty Name="RunningNo2" ColumnName="RunningNo2" />
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+          <ScalarProperty Name="BackgroundColor" ColumnName="BackgroundColor" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

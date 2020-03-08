@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'cxgpsbaseinfo.dbo.RectTable' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="RectTable">
+          <Key>
+            <PropertyRef Name="CompanyID" />
+            <PropertyRef Name="FeatureName" />
+            <PropertyRef Name="LastEditTime" />
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="CompanyID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="FeatureName" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="RectType" Type="nvarchar" MaxLength="50" />
+          <Property Name="strPoints" Type="text" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="200" />
+          <Property Name="LastEditTime" Type="datetime" Nullable="false" />
+          <Property Name="SetTime" Type="nvarchar" MaxLength="6" />
+          <Property Name="FloatingTime" Type="int" />
+          <Property Name="NeedCorrect" Type="char" MaxLength="1" />
+          <Property Name="IsStatic" Type="bit" />
+          <Property Name="UserID" Type="uniqueidentifier" />
+          <Property Name="RunningNo1" Type="nvarchar" MaxLength="20" />
+          <Property Name="RunningNo2" Type="nvarchar" MaxLength="20" />
+          <Property Name="ImagePath" Type="nvarchar" MaxLength="200" />
+          <Property Name="BackgroundColor" Type="nvarchar" MaxLength="10" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="RectTable" EntityType="Self.RectTable" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[RectTable].[CompanyID] AS [CompanyID], 
+[RectTable].[FeatureName] AS [FeatureName], 
+[RectTable].[RectType] AS [RectType], 
+[RectTable].[strPoints] AS [strPoints], 
+[RectTable].[Remark] AS [Remark], 
+[RectTable].[LastEditTime] AS [LastEditTime], 
+[RectTable].[SetTime] AS [SetTime], 
+[RectTable].[FloatingTime] AS [FloatingTime], 
+[RectTable].[NeedCorrect] AS [NeedCorrect], 
+[RectTable].[IsStatic] AS [IsStatic], 
+[RectTable].[UserID] AS [UserID], 
+[RectTable].[RunningNo1] AS [RunningNo1], 
+[RectTable].[RunningNo2] AS [RunningNo2], 
+[RectTable].[ImagePath] AS [ImagePath], 
+[RectTable].[BackgroundColor] AS [BackgroundColor], 
+[RectTable].[id] AS [id]
+FROM [dbo].[RectTable] AS [RectTable]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityType Name="RectTable">
+          <Key>
+            <PropertyRef Name="CompanyID" />
+            <PropertyRef Name="FeatureName" />
+            <PropertyRef Name="LastEditTime" />
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="CompanyID" Type="Guid" Nullable="false" />
+          <Property Name="FeatureName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RectType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="strPoints" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Remark" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="LastEditTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="SetTime" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Name="FloatingTime" Type="Int32" />
+          <Property Name="NeedCorrect" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="IsStatic" Type="Boolean" />
+          <Property Name="UserID" Type="Guid" />
+          <Property Name="RunningNo1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="RunningNo2" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ImagePath" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="BackgroundColor" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityContainer Name="CxgpsBaseInfoContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="RectTable" EntityType="Self.RectTable" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="CxgpsBaseInfoContext">
+          <EntitySetMapping Name="RectTable">
+            <EntityTypeMapping TypeName="Model.RectTable">
+              <MappingFragment StoreEntitySet="RectTable">
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="FeatureName" ColumnName="FeatureName" />
+                <ScalarProperty Name="RectType" ColumnName="RectType" />
+                <ScalarProperty Name="strPoints" ColumnName="strPoints" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="LastEditTime" ColumnName="LastEditTime" />
+                <ScalarProperty Name="SetTime" ColumnName="SetTime" />
+                <ScalarProperty Name="FloatingTime" ColumnName="FloatingTime" />
+                <ScalarProperty Name="NeedCorrect" ColumnName="NeedCorrect" />
+                <ScalarProperty Name="IsStatic" ColumnName="IsStatic" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="RunningNo1" ColumnName="RunningNo1" />
+                <ScalarProperty Name="RunningNo2" ColumnName="RunningNo2" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="BackgroundColor" ColumnName="BackgroundColor" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Models.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'cxgpsinformation.dbo.cx13000000003' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="cx13000000003">
+    <Key>
+      <PropertyRef Name="Time" />
+      <PropertyRef Name="Longitude" />
+      <PropertyRef Name="Latitude" />
+      <PropertyRef Name="Velocity" />
+    </Key>
+    <Property Name="Time" Type="datetime" Nullable="false" />
+    <Property Name="Longitude" Type="decimal" Precision="8" Scale="5" Nullable="false" />
+    <Property Name="Latitude" Type="decimal" Precision="8" Scale="5" Nullable="false" />
+    <Property Name="Velocity" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'cxgpsinformation.dbo.TrackerDetail' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="TrackerDetail">
+    <Key>
+      <PropertyRef Name="Time" />
+      <PropertyRef Name="Longitude" />
+      <PropertyRef Name="Latitude" />
+      <PropertyRef Name="Velocity" />
+    </Key>
+    <Property Name="Time" Type="datetime" Nullable="false" />
+    <Property Name="Longitude" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Latitude" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Velocity" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="ModelsStoreContainer">
+    <EntitySet Name="cx13000000003" EntityType="Self.cx13000000003" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[cx13000000003].[Time] AS [Time], 
+[cx13000000003].[Longitude] AS [Longitude], 
+[cx13000000003].[Latitude] AS [Latitude], 
+[cx13000000003].[Velocity] AS [Velocity]
+FROM [dbo].[cx13000000003] AS [cx13000000003]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="TrackerDetail" EntityType="Self.TrackerDetail" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[TrackerDetail].[Time] AS [Time], 
+[TrackerDetail].[Longitude] AS [Longitude], 
+[TrackerDetail].[Latitude] AS [Latitude], 
+[TrackerDetail].[Velocity] AS [Velocity]
+FROM [dbo].[TrackerDetail] AS [TrackerDetail]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelsStoreContainer" CdmEntityContainer="TrackerContext">
+    <EntitySetMapping Name="TrackerDetail">
+      <EntityTypeMapping TypeName="Models.TrackerDetail">
+        <MappingFragment StoreEntitySet="TrackerDetail">
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="Velocity" ColumnName="Velocity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cx13000000003">
+      <EntityTypeMapping TypeName="Models.cx13000000003">
+        <MappingFragment StoreEntitySet="cx13000000003">
+          <ScalarProperty Name="Velocity" ColumnName="Velocity" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
